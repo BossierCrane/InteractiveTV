@@ -11,42 +11,36 @@
   <body >
     <video controls></video>
     <script>
-      var video = document.querySelector('video');
-      var assetURL = 'frag_bunny.mp4';
-      // Need to be specific for Blink regarding codecs
-      // ./mp4info frag_bunny.mp4 | grep Codec
-      var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
-      if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
-        var mediaSource = new MediaSource;
-        //console.log(mediaSource.readyState); // closed
-        video.src = URL.createObjectURL(mediaSource);
-        mediaSource.addEventListener('sourceopen', sourceOpen);
-      } else {
-        console.error('Unsupported MIME type or codec: ', mimeCodec);
-      }
-      function sourceOpen (_) {
-        //console.log(this.readyState); // open
-        var mediaSource = this;
-        var sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
-        fetchAB(assetURL, function (buf) {
-          sourceBuffer.addEventListener('updateend', function (_) {
-            mediaSource.endOfStream();
-            video.play();
-            //console.log(mediaSource.readyState); // ended
-          });
-          sourceBuffer.appendBuffer(buf);
-        });
-      };
-      function fetchAB (url, cb) {
-        console.log(url);
-        var xhr = new XMLHttpRequest;
-        xhr.open('get', url);
-        xhr.responseType = 'arraybuffer';
-        xhr.onload = function () {
-          cb(xhr.response);
-        };
-        xhr.send();
-      };
+     var vidElement = document.querySelector('video');
+
+if (window.MediaSource) {
+  var mediaSource = new MediaSource();
+  vidElement.src = URL.createObjectURL(mediaSource);
+  mediaSource.addEventListener('sourceopen', sourceOpen);
+} else {
+  console.log("The Media Source Extensions API is not supported.")
+}
+
+function sourceOpen(e) {
+  URL.revokeObjectURL(vidElement.src);
+  var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+  var mediaSource = e.target;
+  var sourceBuffer = mediaSource.addSourceBuffer(mime);
+  var videoUrl = 'Previously on ep1-3_1.mp4';
+  fetch(videoUrl)
+    .then(function(response) {
+      return response.arrayBuffer();
+    })
+    .then(function(arrayBuffer) {
+      sourceBuffer.addEventListener('updateend', function(e) {
+        if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
+          mediaSource.endOfStream();
+        }
+      });
+      sourceBuffer.appendBuffer(arrayBuffer);
+    });
+}
+
     </script>
   </body>
 </html>
