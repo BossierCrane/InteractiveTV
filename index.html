@@ -23,7 +23,7 @@ if (window.MediaSource) {
 
 function sourceOpen(e) {
   URL.revokeObjectURL(vidElement.src);
-  var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+  var mime = 'video/mp4; audio/aac';
   var mediaSource = e.target;
   var sourceBuffer = mediaSource.addSourceBuffer(mime);
   var videoUrl = 'Previously on ep1-3_1.mp4';
