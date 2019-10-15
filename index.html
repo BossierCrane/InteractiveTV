@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-  </head>
-  <style>
-    body {
-  background-color: linen;
-}
-  </style>
-  <body >
-    <video controls></video>
-    <script>
-     var vidElement = document.querySelector('video');
+<body>
+<script>
+var pic0 = "Choice 1.png";
+var pic1 = "Choice 2P.png";
+var pic2 = "Choice 2H.png";
+var pic3P = "Double Punch ending.png"
+var pic4P = "Forgiveness.png"
+var pic3H = "Eternity Hug.png"
+var pic4H = "Eternal"
 
-if (window.MediaSource) {
-  var mediaSource = new MediaSource();
-  vidElement.src = URL.createObjectURL(mediaSource);
-  mediaSource.addEventListener('sourceopen', sourceOpen);
-} else {
-  console.log("The Media Source Extensions API is not supported.")
-}
+</script>
+<h2>What Can JavaScript Do?</h2>
 
-function sourceOpen(e) {
-  URL.revokeObjectURL(vidElement.src);
-  var mime = 'video/mp4; audio/aac';
-  var mediaSource = e.target;
-  var sourceBuffer = mediaSource.addSourceBuffer(mime);
-  var videoUrl = 'Previously on ep1-3_1.mp4';
-  fetch(videoUrl)
-    .then(function(response) {
-      return response.arrayBuffer();
-    })
-    .then(function(arrayBuffer) {
-      sourceBuffer.addEventListener('updateend', function(e) {
-        if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
-          mediaSource.endOfStream();
-        }
-      });
-      sourceBuffer.appendBuffer(arrayBuffer);
-    });
-}
+<p>JavaScript can change HTML attribute values.</p>
 
-    </script>
-  </body>
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+<img id="myImage" src= "Choice 1.png" style="width:500px">
+<p></p>
+
+<button id="left" onclick="document.getElementById('myImage').src= pic1";>Punch</button>
+
+
+
+<button id="right" onclick="document.getElementById('myImage').src= pic2 "> Hug</button>
+
+<p>Options 2P</p>
+
+<button onclick="document.getElementById('myImage').src= pic3P">Punch Again</button>
+<button onclick="document.getElementById('myImage').src= pic4P">Apologise</button>
+
+<p>Options 2H</p>
+<button onclick="document.getElementById('myImage').src= pic3H">Keep Hugging</button>
+<button onclick="document.getElementById('myImage').src= pic4H">Let go</button>
+
+</body>
 </html>
