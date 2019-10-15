@@ -1,6 +1,7 @@
 /* Starlight purple is #522f91 */
-* {
+body {
     background-color: #522f91;
+    color: white;
   }
 button {
     text-align: center;
