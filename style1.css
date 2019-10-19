@@ -9,6 +9,7 @@ button {
     background-color: black;
     color: white;
     border: black;
+    padding: 5px 10px;
 }
 #video
 {
