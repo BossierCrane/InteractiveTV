@@ -11,6 +11,11 @@ button {
     border: black;
     padding: 5px 10px;
 }
+button:hover {
+    background:white;
+    color:black;
+    
+}
 #video
 {
   box-sizing: content-box;
