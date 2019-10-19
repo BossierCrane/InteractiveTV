@@ -13,6 +13,7 @@ button {
 #video
 {
   box-sizing: content-box;
-  width: 1280px;
   height: 720px;
+  width: 1280px;
+  
 }
