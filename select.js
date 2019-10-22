@@ -5,3 +5,15 @@ var pic3P = "Double Punch ending.png"
 var pic4P = "Forgiveness.png"
 var pic3H = "Eternity Hug.png"
 var pic4H = "Eternal adventure.png"
+
+Pusher.logToConsole = true;
+
+    var pusher = new Pusher('7c0ae57426d90de7c792', {
+      cluster: 'ap4',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
