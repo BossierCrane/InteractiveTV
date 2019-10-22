@@ -2,30 +2,32 @@
 <html>
 <link rel="stylesheet" type="text/css" href="style1.css">
 <body>
+
 <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 <script src="select.js"></script>
+<div id="player">
+<img id="video" src= "Shadowkeep_keyart_4K.jpg">
+<button class="choice" id="left" onclick="document.getElementById('video').src= pic1";>Punch</button>
 
 
+<button class="choice" id="right" onclick="document.getElementById('video').src= pic2 "> Hug</button>
 
-
-<img id="video" src= "Choice 1.png">
+<button id="reset" onclick="document.getElementById('video').src= pic0">Reset</button>
+</div>
 <p></p>
 
-<button id="left" onclick="document.getElementById('video').src= pic1";>Punch</button>
 
 
-
-<button id="right" onclick="document.getElementById('video').src= pic2 "> Hug</button>
 
 <p>Options 2P</p>
 
-<button onclick="document.getElementById('video').src= pic3P">Punch Again</button>
-<button onclick="document.getElementById('video').src= pic4P">Apologise</button>
+<button class="choice" onclick="document.getElementById('video').src= pic3P">Punch Again</button>
+<button class="choice" onclick="document.getElementById('video').src= pic4P">Apologise</button>
 
 <p>Options 2H</p>
-<button onclick="document.getElementById('video').src= pic3H">Keep Hugging</button>
-<button onclick="document.getElementById('video').src= pic4H">Let go</button>
-<p></p>
-<button onclick="document.getElementById('video').src= pic0">Reset</button>
+<button class="choice" onclick="document.getElementById('video').src= pic3H">Keep Hugging</button>
+<button class="choice" onclick="document.getElementById('video').src= pic4H">Let go</button>
+<button id="reset" onclick="document.getElementById('video').src= pic0">Reset</button>
+
 </body>
 </html>
