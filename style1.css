@@ -5,20 +5,22 @@ body {
     background-color: #522f91;
     color: #ffe716;
   }
-.choice {
+
+.left, .right {
     text-align: center;
     background-color: #ffe716;
     color: black;
     border: none;
     padding: 5px 10px;
+    
 }
-.choice:hover {
+.left:hover, .right:hover {
     background:white;
     transition:  .5s;
     color:black;
     
 }
-#left 
+.left 
 {
   box-sizing: content-box;
   width: 20%;
@@ -29,7 +31,7 @@ body {
   z-index: 1;
 }
 
-#right
+.right
 {
   box-sizing: content-box;
   width: 20%;
@@ -37,6 +39,7 @@ body {
   position: absolute;
   right: 15%;
   bottom: 5%;
+  z-index: 1;
 }
 
 #player{
@@ -51,20 +54,4 @@ body {
   width: 100%;
   margin: 0px;
   z-index: 0;
-}
-#reset{
-  position: absolute;
-  box-sizing: content-box;
-  bottom: -30px;
-  right: 0%;
-  background-color: black;
-  color: white;
-  border: none;
-  font-size: 20px;
-  padding: 3px 10px;
-}
-#reset:hover{
-background-color: white;
-color: black;
-
 }
