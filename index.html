@@ -13,7 +13,7 @@ socket.on('connection', () => {
         <script src="select.js"></script>
         
         <div id="player">
-            <iframe id="video"  src="https://www.youtube.com/embed/YCJPueQQhYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>" frameborder="0" allowfullscreen></iframe>
+            <iframe id="video" height="500"  src="https://www.youtube.com/embed/YCJPueQQhYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
             <div id="scene1" class="choices" >
                 <button class="left" id="scene1choice1" onclick="socket.emit('left', 1)">City</button>
