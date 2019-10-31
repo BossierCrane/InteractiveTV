@@ -3,7 +3,14 @@
 <link rel="stylesheet" type="text/css" href="style1.css">
 <body>
 
-<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io('http://localhost');
+      socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+      });
+    </script>
 <script src="select.js"></script>
 <div id="player">
 <img id="video" src= "Shadowkeep_keyart_4K.jpg">
