@@ -4,20 +4,30 @@
     <body>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-<script>
-  var socket = io('https://de92f9bd.ngrok.io');
+        <script >
+var socket = io('http://localhost:3000');
 socket.on('connection', () => {
   console.log(socket.connected); // true
+
+          var x = document.getElementsById("leftchoice");
+var y = document.getElementsById("rightchoice");
+
+function leftClick() {
+y.style.display = "none";
+x.style.display = "none";
+socket.emit('left', 1);
+}
+
+
 });
-</script>
-        <script src="select.js"></script>
+        </script>
         
         <div id="player">
             <iframe id="video" height="500"  src="https://www.youtube.com/embed/YCJPueQQhYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
             <div id="scene1" class="choices" >
-                <button class="left" id="scene1choice1" onclick="socket.emit('left', 1)">City</button>
-                <button class="right" id="scene1choice2" onclick="socket.emit('right', 1)">Park</button>
+                <button class="left" id="leftchoice" onclick="leftClick();">City</button>
+                <button class="right" id="rightchoice" onclick="socket.emit('right', 1)">Park</button>
             </div>
 
         </div>
