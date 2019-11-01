@@ -6,21 +6,23 @@ body {
     color: #ffe716;
   }
 
-.left, .right {
+#leftchoice, #rightchoice {
     text-align: center;
-    background-color: #ffe716;
+    background-color: #ffe816c5;
     color: black;
     border: none;
     padding: 5px 10px;
     
 }
-.left:hover, .right:hover {
-    background:white;
+#leftchoice:hover, #rightchoice:hover {
+    background:#ffe716;
     transition:  .5s;
     color:black;
     
 }
-.left 
+
+
+#leftchoice 
 {
   box-sizing: content-box;
   width: 20%;
@@ -31,7 +33,7 @@ body {
   z-index: 1;
 }
 
-.right
+#rightchoice
 {
   box-sizing: content-box;
   width: 20%;
