@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" type="text/css" href="style1.css">
+  <header>
+    <img id="logo" src="Starlight Galaxy Logo Logo yellowtext-03.png">
+  </header> 
+  <link rel="stylesheet" type="text/css" href="style1.css">
+  <head>
+      <link rel="icon" href="Asset 1.png">
+    <title>Galaxy TV</title>
+  </head>
+   
     <body>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script >
-var socket = io('http://localhost:3000');
+//place ngrok link below (making sure https:) 
+var ngrok = 'localhost:3000';
+
+var socket = io(ngrok);
 socket.on('connection', () => {
   console.log(socket.connected); // true
-
-          var x = document.getElementsById("leftchoice");
-var y = document.getElementsById("rightchoice");
-
-function leftClick() {
-y.style.display = "none";
-x.style.display = "none";
-socket.emit('left', 1);
-}
-
-
+});
+socket.on('change', (leftText, rightText) => {
+  document.getElementById('leftchoice').style.display = 'inline-block';
+  document.getElementById('rightchoice').style.display = 'inline-block';
+  document.getElementById('leftchoice').innerHTML = leftText;
+  document.getElementById('rightchoice').innerHTML = rightText;
+});
+socket.on('disappear', () => {
+  document.getElementById('leftchoice').style.display = 'none';
+  document.getElementById('rightchoice').style.display = 'none';
 });
         </script>
-        
+       
         <div id="player">
-            <iframe id="video" height="500"  src="https://www.youtube.com/embed/YCJPueQQhYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video" height="800"  src="https://www.youtube.com/embed/YCJPueQQhYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
             <div id="scene1" class="choices" >
-                <button class="left" id="leftchoice" onclick="leftClick();">City</button>
-                <button class="right" id="rightchoice" onclick="socket.emit('right', 1)">Park</button>
+                <button class="left" id="leftchoice" onclick="socket.emit('left', 1); document.getElementById('leftchoice').style.display = 'none'; document.getElementById('rightchoice').style.display = 'none';"></button>
+                <button class="right" id="rightchoice" onclick="socket.emit('right', 1); document.getElementById('leftchoice').style.display = 'none'; document.getElementById('rightchoice').style.display = 'none';"></button>
             </div>
 
         </div>
