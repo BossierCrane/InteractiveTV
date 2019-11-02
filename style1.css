@@ -5,14 +5,15 @@
   
 header{
   background-color: #341d5e;
-  padding: 0%, 0% ;
+  padding: 0% 0% ;
   border: 0%;
-  margin: 0%, 0%;
+  margin: 0% 0%;
 } 
 
 body {
     background-color: #522f91;
     color: #ffe716;
+    margin: 0;
   }
 
   
@@ -23,7 +24,7 @@ head{
 
  #logo{
 width: 10%;
-
+margin: 1% 0% 1% 1%;
  }
 
 #leftchoice, #rightchoice {
