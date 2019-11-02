@@ -1,10 +1,30 @@
 /* Starlight purple is #522f91 
     Starlight Yellow is #ffe716
 */
+
+  
+header{
+  background-color: #341d5e;
+  padding: 0%, 0% ;
+  border: 0%;
+  margin: 0%, 0%;
+} 
+
 body {
     background-color: #522f91;
     color: #ffe716;
   }
+
+  
+head{
+  color: #000;
+  width: 100%;
+}
+
+ #logo{
+width: 10%;
+
+ }
 
 #leftchoice, #rightchoice {
     text-align: center;
@@ -12,6 +32,7 @@ body {
     color: black;
     border: none;
     padding: 5px 10px;
+    display: none;
     
 }
 #leftchoice:hover, #rightchoice:hover {
@@ -44,10 +65,11 @@ body {
   z-index: 1;
 }
 
+
 #player{
   box-sizing: content-box;
   position: relative;
-  padding: 0;
+  padding: 0%;
 
 }
 #video
