@@ -33,7 +33,7 @@ socket.on('disappear', () => {
         </script>
        
         <div id="player">
-            <iframe id="video" height="500px"  src="https://www.youtube.com/embed/live_stream?channel=UCpf-gu0kmwyeZXZKPyuATYw" frameborder="0" autoplay="1" controls="0"  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <iframe id="video" height="500px"  src="https://www.youtube.com/embed/live_stream?channel=UCpf-gu0kmwyeZXZKPyuATYw&controls=0" frameborder="0" autoplay=1 controls=0  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
         
             <div id="scene1" class="choices" >
                 <button class="left" id="leftchoice" onclick="socket.emit('left', 1); document.getElementById('leftchoice').style.display = 'none'; document.getElementById('rightchoice').style.display = 'none';"></button>
