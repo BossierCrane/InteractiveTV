@@ -53,6 +53,7 @@ margin: 1% 0% 1% 1%;
   left: 15%;
   bottom: 5%;
   z-index: 1;
+  size:15px;
 }
 
 #rightchoice
@@ -64,6 +65,7 @@ margin: 1% 0% 1% 1%;
   right: 15%;
   bottom: 5%;
   z-index: 1;
+  size: 15px;
 }
 
 
